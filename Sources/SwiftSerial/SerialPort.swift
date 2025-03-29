@@ -277,7 +277,7 @@ private func openPort(path: String, readWriteParam: Int32) -> Int32 {
 #if os(Linux)
     return open(path, readWriteParam | O_NOCTTY)
 #elseif os(OSX)
-    return open(path, readWriteParam | O_NOCTTY | O_EXLOCK)
+    return open(path, readWriteParam | O_NOCTTY | O_NDELAY)
 #endif
 }
 
